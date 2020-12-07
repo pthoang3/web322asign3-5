@@ -1,0 +1,81 @@
+<section class="airbnb-hero signup-hero">
+  <div class="container is-fluid columns">
+    <div class="column is-6 is-offset-one-quarter ">
+      <div class="box">
+        <h2 class="title is-2 has-text-success has-text-centered">Signup</h2>
+        <form action="/user/signup" method="POST">
+          <div class="field">
+            <label class="label">First name</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="text" name="firstname" placeholder="First name" value={{firstname}}>
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </div>
+            {{#if firstnameError }}
+            <span class="has-text-danger">{{ firstnameError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="field">
+            <label class="label">Last name</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="text" name="lastname" placeholder="Last name" value={{lastname}}>
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </div>
+            {{#if lastnameError }}
+            <span class="has-text-danger">{{ lastnameError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="email" name="email" placeholder="Email" value={{email}}>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+            {{#if emailError }}
+            <span class="has-text-danger">{{ emailError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="password" name="password" placeholder="Password" value={{password}}>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+            {{#if passwordError }}
+            <span class="has-text-danger">{{ passwordError }}</span>
+            {{/if}}
+          </div>
+          <div class="field">
+            <label class="label">Birthday</label>
+            <input class="input has-background-white" type="date" data-label-from="Birthday" data-display-mode="dialog"
+              data-color="info" name="birthday">
+            {{#if birthdayError }}
+            <span class="has-text-danger">{{ birthdayError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="control has-text-centered">
+            <button class="button is-primary">Signup</button>
+          </div>
+          <div class="has-text-centered form-text-margin">
+            <p>
+              <span>Already have an account?</span>
+              <a href="/user/login" class="has-text-primary">Login</a>
+            </p>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>

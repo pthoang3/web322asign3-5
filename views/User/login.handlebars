@@ -1,0 +1,58 @@
+<section class="airbnb-hero login-hero">
+  <div class="container is-fluid columns">
+    <div class="column is-6 is-offset-one-quarter ">
+      <div class="box">
+        <h2 class="title is-2 has-text-success has-text-centered">Login</h2>
+        <form action="/user/login" method="POST">
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="email" name="email" placeholder="Email" value={{email}}>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+            {{#if emailError }}
+            <span class="has-text-danger">{{ emailError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="password" name="password" placeholder="Password" value={{password}}>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+            {{#if passwordError }}
+            <span class="has-text-danger">{{ passwordError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="field has-text-centered">
+            <input type="checkbox" class="checkbox" name="remember">
+            <span id="remember-text">Remember me</span>
+          </div>
+          {{#if error }}
+          <span class="has-text-danger">{{ error }}</span>
+          {{/if}}
+          <div class="control has-text-centered">
+            <button class="button is-primary">Login</button>
+          </div>
+
+          <div class="has-text-centered">
+            <p class="form-text-margin">
+              <a href="/user/forget-password" class="has-text-danger">Forget password</a>
+            </p>
+            <p>
+              <span>Don't have an account?</span>
+              <a href="/user/signup" class="has-text-primary">Signup</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

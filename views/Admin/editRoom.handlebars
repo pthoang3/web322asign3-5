@@ -1,0 +1,112 @@
+<section class="airbnb-hero signup-hero">
+  <div class="container is-fluid columns">
+    <div class="column is-6 is-offset-one-quarter ">
+      <div class="box">
+        <h2 class="title is-2 has-text-success has-text-centered">Edit Room</h2>
+        <form action="/admin/edit/{{_id}}?_method=PUT" method="POST" enctype="multipart/form-data">
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" required type="text" name="title" placeholder="Title" value="{{title}}">
+              <span class="icon is-small is-left">
+                <i class="fas fa-tags"></i>
+              </span>
+            </div>
+            {{#if titleError }}
+            <span class="has-text-danger">{{ titleError }}</span>
+            {{/if}}
+          </div>
+
+          <div class=" columns">
+            <div class="field column">
+              <label class="label">Price</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" required type="number" step="0.01" name="price" placeholder="Price"
+                  value={{price}}>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-money-bill-wave-alt"></i>
+                </span>
+              </div>
+              {{#if priceError }}
+              <span class="has-text-danger">{{ priceError }}</span>
+              {{/if}}
+            </div>
+
+            <div class="field column">
+              <label class="label">City</label>
+              <div class="control has-icons-left">
+                <div class="select is-rounded is-fullwidth">
+                  <select name="city">
+                    <option>Select city</option>
+                    <option {{#ifvalue city value="Toronto"}}selected{{/ifvalue}} value="Toronto">Toronto</option>
+                    <option {{#ifvalue city value="Waterloo"}}selected{{/ifvalue}} value="Waterloo">Waterloo</option>
+                    <option {{#ifvalue city value="Vancouver"}}selected{{/ifvalue}} value="Vancouver">Vancouver</option>
+                    <option {{#ifvalue city value="Ottawa"}}selected{{/ifvalue}} value="Ottawa">Ottawa</option>
+                  </select>
+                </div>
+                <span class="icon is-left">
+                  <i class="fas fa-globe"></i>
+                </span>
+              </div>
+
+              {{#if cityError }}
+              <span class="has-text-danger">{{ cityError }}</span>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="description">Description</label>
+            <div class="control">
+              <textarea class="textarea" name="description" id="description" required
+                placeholder="Description">{{description}}</textarea>
+            </div>
+            {{#if descriptionError }}
+            <span class="has-text-danger">{{ descriptionError }}</span>
+            {{/if}}
+          </div>
+
+          <div class="field">
+            <label class="label" for="file">Room Image</label>
+            <div class="file has-name">
+              <label class="file-label">
+                <input id="file" class="file-input" type="file" name="file" value={{file}}>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a new image…
+                  </span>
+                </span>
+                <span class="file-name">
+                  {{#if file }}
+                  {{file.name}}
+                  {{/if}}
+                </span>
+              </label>
+            </div>
+            <br>
+            <div>
+              <!-- Little trick to rerender the image when the data validation failed! -->
+              <input type="text" style="display:none" name="oldImage" value={{oldImage}}>
+              <img src="/rooms/{{oldImage}}" alt="{{title}} image">
+            </div>
+            {{#if fileError }}
+            <span class="has-text-danger">{{ fileError }}</span>
+            {{/if}}
+          </div>
+
+          {{#if error }}
+          <span class="has-text-danger">{{ error }}</span>
+          {{/if}}
+          <div class="control has-text-centered">
+            <button class="button is-primary">Edit room</button>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

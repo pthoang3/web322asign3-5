@@ -1,0 +1,45 @@
+<section class="airbnb-hero dashboard-hero single-room">
+  <div class="single-room-content">
+
+
+    <div class="box card">
+      <div class="card-image">
+        <figure class="image">
+          <img src="/rooms/{{image}}" alt="{{title}} image">
+        </figure>
+        <div class="card-content">
+          <div class="content">
+            <h6 class="subtitle is-uppercase is-6 has-text-grey">{{city}}</h6>
+            <h6 class="title is-6">{{title}}</h6>
+            <p>
+              {{description}}
+            </p>
+            <p>
+              <span>
+                ${{price}} CAD/night
+              </span>
+            </p>
+            <p>
+              {{#if user}}
+              {{#if user.isAdmin }}
+              <a class="button is-primary" style="padding:0.5rem" href="/admin/edit/{{_id}}">
+                Edit
+              </a>
+              {{else}}
+              <a class="button is-primary" style="padding:0.5rem" href="/book/{{_id}}">
+                Book
+              </a>
+              {{/if}}
+              {{else}}
+              <a class="button is-primary" style="padding:0.5rem" href="/user/login">
+                Book
+              </a>
+              {{/if}}
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

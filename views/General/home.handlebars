@@ -1,0 +1,122 @@
+<main>
+  <section class="airbnb-hero level home-hero">
+    <div id="bookroom" class="level-item columns bookform">
+      <div class="box column is-one-third">
+        <h2 class="title is-2">Book unique places to stay and things to do.</h2>
+        <br>
+        <form id="book-form" action="/rooms">
+          <div class="field">
+            <label class="label">WHERE</label>
+            <div class="control is-fullwidth">
+              <div class="select is-fullwidth">
+                <select name="city">
+                  <option value="">Choose a city</option>
+                  <option value="Toronto">Toronto</option>
+                  <option value="Waterloo">Waterloo</option>
+                  <option value="Vancouver">Vancouver</option>
+                  <option value="Ottawa">Ottawa</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">CHECK-IN TIME</label>
+            <div class="control">
+              <input class="input has-background-white" type="date" data-label-from="Check-in" data-label-to="Check-out"
+                data-display-mode="dialog" data-color="info" name="bookDate" data-is-range="true">
+            </div>
+          </div>
+
+          <input type="number" class="is-hidden" id="adults" name="adults" value=0>
+          <input type="number" class="is-hidden" id="children" name="children" value=0>
+          <div class="field">
+            <label class="label">GUESTS</label>
+            <div class="control has-icons-right is-fullwidth">
+              <div class="dropdown book-dropdown">
+                <div class="dropdown-trigger book-dropdown">
+                  <button class="button has-text-left book-dropdown" aria-haspopup="true" type="button"
+                    aria-controls="dropdown-menu3">
+                    <span id="guest-display">Guests</span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                  <div class="dropdown-content">
+                    <div class="dropdown-item columns">
+                      <div class="column">
+                        <strong>Adults</strong>
+                      </div>
+                      <div class="column columns">
+
+                        <button id="minus-adult-btn" class="button is-white column" disabled type="button">
+                          <i class="fas fa-minus-circle has-text-info"></i>
+                        </button>
+                        <span class="column" id="adult-num">0</span>
+                        <button id="plus-adult-btn" class="button is-white column" type="button">
+                          <i class="fas fa-plus-circle has-text-info"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="dropdown-item columns">
+                      <div class="column">
+                        <strong>Chilren</strong><br>
+                      </div>
+                      <div class="column columns">
+
+                        <button id="minus-children-btn" class="button is-white column" disabled type="button">
+                          <i class="fas fa-minus-circle has-text-info"></i>
+                        </button>
+                        <span class="column" id="children-num">0</span>
+                        <button id="plus-children-btn" class="button is-white column" type="button">
+                          <i class="fas fa-plus-circle has-text-info"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="control has-text-right">
+            <button class="button is-danger">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="promotion hero is-info">
+    <div class="promotion-body">
+      <h1 class="title"><a href="/user/signup" class="button is-primary">Signup</a> now to get $20 off for your
+        first book.</h1>
+    </div>
+  </section>
+
+  <section class="secction about-us">
+    <div class="container is-fluid">
+      <div class="columns is-vcentered">
+        <div class="column is-4 is-offset-2 ">
+          <div class="about-img-container">
+            <img
+              src="https://backroads-gatsby-project.netlify.com/static/1bc167c56564e36f63c72b0683bd3ea4/2b1a3/defaultBcg.jpg"
+              alt="">
+          </div>
+
+        </div>
+        <div class="column is-4">
+          <h4 class="title is-4 has-text-centered is-uppercase">About <span class="has-text-primary">us</span></h4>
+
+          <p class="has-text-justified about-text">
+            A‌i‌r‌b‌n‌b‌‌ is an online marketplace for arranging or offering lodging, primarily homestays, or
+            tourism experiences. We do not own any of the real estate listings, nor does it host events; it
+            acts as a broker, receiving commissions from each booking. We are based in San Francisco,
+            California, United States.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
