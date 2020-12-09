@@ -138,8 +138,9 @@ exports.postLogin = (req, res) => {
   }
 };
 
-exports.getDashboard = (req, res) => {
-  Booking.find({ userID: req.session.userInfo._id })
+
+
+  Booking.find({ userID: req.session.userInfo._id }).lean()
     .sort({ createdOn: -1 })
     .then(bookings => {
       res.render("User/dashboard", { bookings });
@@ -148,7 +149,7 @@ exports.getDashboard = (req, res) => {
       console.log(`Something went wrong when fetch the bookings:\n${err}`);
       res.render("User/dashboard");
     });
-};
+
 
 exports.logout = (req, res) => {
   //This destorys the session

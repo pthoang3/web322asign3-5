@@ -1,4 +1,4 @@
-require("dotenv").config({path:"./config/keys.env"});
+require("dotenv").config();
 var nodemailer = require("nodemailer");
 
 const sendEmail = user => {

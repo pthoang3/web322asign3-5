@@ -14,10 +14,12 @@
             </a>
             <div class="card-content">
               <div class="content">
-                 <h6 class="housetitle">{{this.title}}  <div class="host">Super Host</div> </h6>        
+                <h6 class="subtitle is-uppercase is-6 has-text-grey">{{this.city}}</h6>
+                <h6 class="housetitle">{{this.title}}</h6>
                 <p class="columns is-vcentered">
-                  <h6>House Type: Entire House</h6>
-                  <h6>Price: ${{this.price}} CAD/night </h6>
+                  <span class="column is-8">
+                    ${{this.price}} CAD/night
+                  </span>
 
                   {{#if ../user}}
                   {{#if ../user.isAdmin }}
@@ -44,8 +46,4 @@
       {{/each}}
     </div>
   </div>
-  <!--Testimonial-->
-{{> testimonial}}
-<!--Banner Ads-->
-{{> advertise}}
 </section>
