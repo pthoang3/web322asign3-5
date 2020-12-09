@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-mongoose.Promise = require('bluebird');
+mongoose.set('useCreateIndex', true);
 
 const BookingSchema = new mongoose.Schema({
   roomID: {

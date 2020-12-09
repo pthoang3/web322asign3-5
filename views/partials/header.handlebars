@@ -1,0 +1,54 @@
+<header>
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar_container">
+           <a href="" id="navbar_logo"><i class="fas fa-heartbeat"></i>Airbnb</a> 
+           <div class="navbar_toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+           </div>
+           <ul class="navbar_menu" >
+               <li class="navbar_item">
+                   <a href="/" class="navbar_links" >Home</a>
+               </li>
+               <li class="navbar_item">
+                    <a href="/rooms" class="navbar_links">Rooms</a>
+                </li>
+                {{#if user}}
+                {{#if user.isAdmin}}
+                <li class="navbar_item">
+                <a href="/admin/add" class="navbar_links">Add rooms</a>
+                </li>
+                <li class="navbar_item">
+                <a href="/admin/dashboard" class="navbar_links">Dashboard</a>
+                </li>
+                {{else}}
+                <li class="navbar_item">
+                <a href="/admin/dashboard" class="navbar_links">Dashboard</a>
+                </li>
+                {{/if}}
+                <li class="navbar_item">
+                <a href="/user/logout" class="navbar_links">Logout</a>
+                </li>
+                {{else}}
+               <li class="navbar_item">
+                <a href="/user/login" class="navbar_links">Login</a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/user/signup" class="navbar_links">Sign Up</a>
+                </li>
+                <li class="navbar_btn" >
+                      <a href="/" href="#search_form" class="search_btn"><i class="fa fa-search" aria-hidden="true"></i>Search</a>
+                </li>
+                {{/if}}
+           </ul>
+        </div>
+    </nav>
+    </div>
+          
+        </div>
+      </div>
+    </nav>
+    </div>
+  </header>

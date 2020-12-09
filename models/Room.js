@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+mongoose.set('useCreateIndex', true);
 mongoose.Promise = require("bluebird");
 const RoomSchema = new mongoose.Schema({
   title: {

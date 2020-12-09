@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 mongoose.Promise = require("bluebird");
+mongoose.set('useCreateIndex', true);
 const UserSchema = new mongoose.Schema({
   firstname: {
     type: String,

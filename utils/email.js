@@ -1,49 +1,48 @@
-const nodemailer = require("nodemailer");
-const sgTransport = require("nodemailer-sendgrid-transport");
-require("dotenv").config();
-
-const options = {
-  auth: {
-    api_key: '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'
-  }
-};
-const mailer = nodemailer.createTransport(sgTransport(options));
+require("dotenv").config({path:"./config/keys.env"});
+var nodemailer = require("nodemailer");
 
 const sendEmail = user => {
-  const text = `
-  Dear ${user.lastname},
-    You have registered successfully at Airbnb.
-    
-    Thank you for choosing us!
-    
-  Best regards,
-  WEB322-Airbnb Admin`;
-
-  const html = `
-  <p>Dear ${user.lastname},<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;You have registered successfully at Airbnb.<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;Thank you for choosing us!
-  </p>
-  <p>
-  Best regards,<br>
-  WEB322-Airbnb Admin
-  </p>
-  `;
-  const emailInfo = {
-    to: user.email,
-    from: 'pthoang3web322@gmail.com',
-    subject: "Web322-Airbnb Registration Successfully",
-    text,
-    html
-  };
-
-  mailer.sendMail(emailInfo, (err, info) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(`Message sent: ${info.response}`);
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'pthoang3web322@gmail.com',
+        pass: 'web322HoangThuy'
     }
-  });
+});
+var myUser={
+    user_fname:'',
+    user_lname:'',
+    user_email:'',
+    username:''
+}
+const FORM_DATA = user;
+myUser.user_fname=FORM_DATA.fname;
+myUser.user_lname=FORM_DATA.lname;
+myUser.user_email=FORM_DATA.email;
+myUser.username=myUser.user_fname+ ' '+ myUser.user_lname;
+var emailOptions = {
+    from: 'pthoang3web322@gmail.com',
+    to: FORM_DATA.email,
+    subject: 'Register Confirmation from PTH Airbnb',
+    html: '<p>Dear'+ FORM_DATA.fname+',<br>'+
+    '&nbsp;&nbsp;&nbsp;&nbspYou have successfully register to PTHHouseTO website. <br>'+
+    '&nbsp;&nbsp;&nbsp;&nbsp;Thank you for choosing us to find your ideal house. We are happy that we will be with you in your next travel.'
+  +'</p>'+
+  '<p>'+
+  'Best regards,<br>'+
+  'PTHHouseTo'+
+  '</p>'
+};
+
+transporter.sendMail(emailOptions, (error, info) => {
+    if (error) {
+        console.log("ERROR: " + error);
+    } else {
+        console.log("SUCCESS: " + info.response);
+        
+    }
+});
+  
 };
 
 module.exports = sendEmail;

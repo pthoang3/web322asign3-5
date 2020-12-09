@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const fileupload = require("express-fileupload");
 const methodOverride = require("method-override");
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 require("dotenv").config();
 
 const app = express();
@@ -17,6 +18,10 @@ const handlebars = exphbs.create({
         return options.inverse(this);
       }
     }
+  },
+  runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true
   }
 });
 
@@ -25,7 +30,10 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({ secret: '' }));
+app.use(session({ 
+  secret: 'hpt123456789',
+  resave: true,
+  saveUninitialized: true }));
 app.use(fileupload());
 app.use(methodOverride("_method"));
 
@@ -48,7 +56,7 @@ const PORT = process.env.PORT || 3000;
 
 const DBURL = `mongodb+srv://pthoang:web322assignment@cluster0.zwp0q.mongodb.net/test?authSource=admin&replicaSet=atlas-sb61ai-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true`;
 mongoose
-  .connect(DBURL, { useNewUrlParser: true })
+  .connect(DBURL, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
   .then(() => {
     console.log("Database is connected");
     app.listen(PORT, () => {

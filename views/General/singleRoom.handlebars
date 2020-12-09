@@ -1,45 +1,88 @@
 <section class="airbnb-hero dashboard-hero single-room">
   <div class="single-room-content">
+    <div class="intro">
+    <div class="row">
+    <div class="col-2"> 
+        <form id="search_form" action="/rooms">
+        <h1>Find your airbnb.</h1>
+            <label >Location</label>
+          
+                <select  class="search_select" name="city">
+                  <option value="">Choose a city</option>
+                  <option value="Toronto">Toronto</option>
+                  <option value="Waterloo">Waterloo</option>
+                  <option value="Vancouver">Vancouver</option>
+                  <option value="Ottawa">Ottawa</option>
+                </select>
+         
+            <label >Check-in</label>
+            <div class="control">
+              <input class="search_input" type="date" name="bookDate" >
+            </div>
 
+             <label >Check-out</label>
+             <input class="search_input" type="date"  name="bookDate" >
+          <br>
+                <label>Guests</label>
+          <br>
+                <select class="search_select" name="guest">
+                    <option value="1">1 guest</option>
+                    <option value="2">2 guests</option>
+                    <option value="3">3 guests</option>
+                    <option value="4">4 guests</option>
+                    <option value="5">5 guests</option>
+                    <option value="5">6 guests</option>
+                    <option value="5">7 guests</option>
+                </select>
+                <br>
 
-    <div class="box card">
-      <div class="card-image">
-        <figure class="image">
-          <img src="/rooms/{{image}}" alt="{{title}} image">
-        </figure>
-        <div class="card-content">
-          <div class="content">
-            <h6 class="subtitle is-uppercase is-6 has-text-grey">{{city}}</h6>
-            <h6 class="title is-6">{{title}}</h6>
-            <p>
-              {{description}}
-            </p>
-            <p>
-              <span>
-                ${{price}} CAD/night
-              </span>
-            </p>
-            <p>
-              {{#if user}}
-              {{#if user.isAdmin }}
-              <a class="button is-primary" style="padding:0.5rem" href="/admin/edit/{{_id}}">
-                Edit
-              </a>
-              {{else}}
-              <a class="button is-primary" style="padding:0.5rem" href="/book/{{_id}}">
-                Book
-              </a>
-              {{/if}}
-              {{else}}
-              <a class="button is-primary" style="padding:0.5rem" href="/user/login">
-                Book
-              </a>
-              {{/if}}
-            </p>
-
-          </div>
-        </div>
-      </div>
+         <br>
+                
+                <div id="search_button">
+                    <input type="submit" id="search_findButton" value="Find">
+                </div>
+        </form> 
+   </div>
+    <div class="col-2">
+                <img src="../images/animation-house-drawing-image-child-png-favpng-mRx6PXeYFCQnQxUDsQ1tXAna1.png" alt="">
     </div>
-  </div>
+ </div>
+ </div>
+
+  <div class="row">
+    <div class="col-2">          
+        <a href="/room/{{this._id}}">
+        <img id="room_img" src="/rooms/{{this.image}}" alt="{{this.title}}">
+        </a>
+    </div>
+    <div class="col-2"> 
+        <h3>Location:<b>{{this.city}}</b></h3>
+        <br>
+        <h3>{{this.title}}</h3>
+          <br>
+          <h3 class="price">Price: <b>{{this.price}}</b>$/night</h3>
+          <br>
+          <h3>Description:{{this.description}}</h3>
+                  {{#if ../user}}
+                  {{#if ../user.isAdmin }}
+               
+                  <a id="single_button" href="/admin/edit/{{this._id}}">
+                  Edit
+                  </a>
+                  
+                  {{else}} 
+                  <a id="single_button" href="/book/{{this._id}}"> 
+                   Book     
+                  </a>
+                  
+                  {{/if}}
+                  {{else}} 
+                  <a id="single_button" href="/user/login">   
+                  Book
+                  </a>
+          
+                  {{/if}}
+      </div>
+      </div>
+      </div>
 </section>
