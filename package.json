@@ -33,5 +33,14 @@
   },
   "devDependencies": {
     "handlebars": "^4.7.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pthoang3/web322asign3-5.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pthoang3/web322asign3-5/issues"
+  },
+  "homepage": "https://github.com/pthoang3/web322asign3-5#readme",
+  "description": ""
 }
