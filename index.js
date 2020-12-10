@@ -6,7 +6,7 @@ const session = require("express-session");
 const fileupload = require("express-fileupload");
 const methodOverride = require("method-override");
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
-require("dotenv").config();
+require("dotenv").config({path:'./config/keys.env'});
 
 const app = express();
 const handlebars = exphbs.create({
@@ -54,9 +54,8 @@ app.use("/", generalRouter);
 
 const PORT = process.env.PORT || 3000;
 
-const DBURL = `mongodb+srv://pthoang3:web322assignment@cluster0.mnwsa.mongodb.net/test`;
-mongoose
-  .connect(DBURL, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
   .then(() => {
     console.log("Database is connected");
     app.listen(PORT, () => {

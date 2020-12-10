@@ -1,8 +1,8 @@
-<section class="airbnb-hero signup-hero">
+<section class="admin">
   <div class="container is-fluid columns">
     <div class="column is-6 is-offset-one-quarter ">
       <div class="box">
-        <h2 class="title is-2 has-text-success has-text-centered">Edit Room</h2>
+        <h2 class="title">Edit Room</h2>
         <form action="/admin/edit/{{_id}}?_method=PUT" method="POST" enctype="multipart/form-data">
           <div class="field">
             <label class="label">Title</label>
@@ -102,8 +102,8 @@
           {{#if error }}
           <span class="has-text-danger">{{ error }}</span>
           {{/if}}
-          <div class="control has-text-centered">
-            <button class="button is-primary">Edit room</button>
+          <div class="Add_button">
+            <button id="AddButton">Edit room</button>
           </div>
 
 

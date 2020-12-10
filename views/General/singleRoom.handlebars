@@ -56,13 +56,13 @@
         </a>
     </div>
     <div class="col-2"> 
-        <h3>Location:<b>{{this.city}}</b></h3>
-        <br>
-        <h3>{{this.title}}</h3>
+      <h2><b>{{this.title}}</b></h2>
+       <br>
+        <h2><b>Location: </b> {{this.city}}</h2>
           <br>
-          <h3 class="price">Price: <b>{{this.price}}</b>$/night</h3>
+          <h2 class="price"><b>Price: </b> <b><i>{{this.price}}</i></b>$/night</h2> 
           <br>
-          <h3>Description:{{this.description}}</h3>
+          <h2><b>Description: </b>{{this.description}}</h2>
                   {{#if ../user}}
                   {{#if ../user.isAdmin }}
                
