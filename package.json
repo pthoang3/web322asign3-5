@@ -1,19 +1,23 @@
 {
-  "name": "web322-assign3to5",
+  "name": "web322-asign3-5",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.14.1"
-  },
+  "description": "Final assignment for web",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pthoang3/web322asign3-5.git"
   },
   "author": "Hoang Phuong Thuy",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pthoang3/web322asign3-5/issues"
+  },
+  "homepage": "https://github.com/pthoang3/web322asign3-5#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
-    "@sendgrid/mail": "^6.5.5",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
@@ -23,24 +27,12 @@
     "express-fileupload": "^1.2.0",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
+    "memorystore": "^1.6.4",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",
-    "mongoose": "^5.11.4",
+    "mongoose": "^5.11.6",
     "multer": "^1.4.2",
     "nodemailer": "^6.4.16",
-    "nodemon": "^2.0.6",
     "uuidv1": "^1.6.14"
-  },
-  "devDependencies": {
-    "handlebars": "^4.7.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pthoang3/web322asign3-5.git"
-  },
-  "bugs": {
-    "url": "https://github.com/pthoang3/web322asign3-5/issues"
-  },
-  "homepage": "https://github.com/pthoang3/web322asign3-5#readme",
-  "description": ""
+  }
 }
