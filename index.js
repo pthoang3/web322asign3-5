@@ -2,10 +2,9 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const session = require("express-session");
 const fileupload = require("express-fileupload");
 const methodOverride = require("method-override");
-const session = require("express-session");
-const clientSessions = require("client-sessions");
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 require("dotenv").config();
 
@@ -31,13 +30,10 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(clientSessions({
-  cookieName: "session",
-  secret: "web322_Session",
-  duration: 2*60*1000,
-  activeDuration: 1000*60
-}));
-
+app.use(session({ 
+  secret: 'hpt123456789',
+  resave: true,
+  saveUninitialized: true }));
 app.use(fileupload());
 app.use(methodOverride("_method"));
 
@@ -58,7 +54,7 @@ app.use("/", generalRouter);
 
 const PORT = process.env.PORT || 3000;
 
-const DBURL = `mongodb+srv://arseyrc:senecapassword@senecaweb.5iwr5.mongodb.net/week10?retryWrites=true&w=majority`;
+const DBURL = `mongodb+srv://pthoang3:web322assignment@cluster0.mnwsa.mongodb.net/test`;
 mongoose
   .connect(DBURL, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
   .then(() => {
@@ -67,7 +63,6 @@ mongoose
       console.log(`Server running on port ${PORT}`);
     });
   })
-
   .catch(err => {
     console.log(`Something went wrong: ${err}`);
   });
