@@ -85,6 +85,7 @@ exports.getEditRoom = (req, res) => {
     .then(room => {
       if (room) {
         res.render("Admin/editRoom", { oldImage: room.image, ...room._doc });
+
       } else {
         res.redirect("Admin/dashboard");
       }
@@ -100,12 +101,13 @@ exports.putEditRoom = (req, res) => {
   if (req.files && !isImage(req.files.file)) {
     errors.fileError = "The file needs to be image type";
   }
+  
   if (Object.keys(errors).length > 0) {
+    console.log("In render");
     res.render("Admin/editRoom", { ...errors, ...req.body });
   } else {
     let oldRoomImage = null;
-
-    Room.findById(req.params.id)
+    Room.findByIdAndUpdate(req.params.id)
       .then(room => {
         if (room) {
           room.title = req.body.title;
@@ -121,14 +123,16 @@ exports.putEditRoom = (req, res) => {
           }
           return room.save();
         } else {
+          
           res.redirect("/Admin/dashboard");
+
         }
       })
       .then(room => {
         if (req.files) {
           return req.files.file.mv(`public/rooms/${room.image}`);
         } else {
-          res.redirect("/Admin/dashboard");
+          /*res.redirect("/Admin/dashboard");*/
         }
       })
       .then(() => {

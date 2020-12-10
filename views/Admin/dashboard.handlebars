@@ -1,14 +1,27 @@
 <section class="airbnb-hero dashboard-hero">
-  <div class="dashboard-content">
-    <h3 class="title is-3">Hello {{user.firstname}} {{user.lastname}}, Welcome to Airbnb Admin page!</h1>
-      <a href="/admin/add" class="button large is-primary">Add a new room</a>
+  <div class="intro">
+    
+        <div class="row">
+            <div class="col-2">
+              <h1 id="dashboard">Welcome {{user.firstname}} {{user.lastname}} to PTH's Airbnb</h1>
+              <h1 id="dashboard">Thank for sign up our website</h1>
+              <h1 id="dashboard">We hope that you have good experience with us</h1>
+              <h1 id="dashboard">Let go and see now!!!</h1>
+              <a id="dashboard_button" href="/rooms" class="btn">Discover Now </a>
+            </div>
+            <div class="col-2">
+                <img src="../images/animation-house-drawing-image-child-png-favpng-mRx6PXeYFCQnQxUDsQ1tXAna1.png" alt="">
+            </div>
+        </div>
+    </div>
   </div>
-  <div class="box container has-text-centered">
-    <h2 class="title is-2">Our Rooms</h2>
+<div class="categories1">
+<div class="small-container">
+<h2 class="title">Room list</h2>
     <br>
-    <div class="has-text-left columns is-multiline">
+    <div class="row">
       {{#each rooms}}
-      <div class="column is-one-third ">
+       <div class="column is-one-third ">
         <div class="box card">
           <div class="card-image">
             <a href="/room/{{this._id}}">
@@ -19,21 +32,39 @@
             <div class="card-content">
               <div class="content">
                 <h6 class="subtitle is-uppercase is-6 has-text-grey">{{this.city}}</h6>
-                <h6 class="title is-6">{{this.title}}</h6>
+                <h6 class="housetitle">{{this.title}}  <div class="host">Super Host</div> </h6>        
                 <p class="columns is-vcentered">
-                  <span class="column is-8">
-                    ${{this.price}} CAD/night
-                  </span>
-                  <a class="column is-4  button is-primary" style="padding:0.5rem" href="/admin/edit/{{this._id}}">
+                  <h6>House Type: Entire House</h6>
+                  <h6>Price: ${{this.price}} CAD/night </h6>
+                  
+                  {{#if ../user}}
+                  {{#if ../user.isAdmin }}
+                  <a id='button'  href="/admin/edit/{{this._id}}">
                     Edit
                   </a>
+                  {{else}}
+                  <a id='button'  href="/book/{{this._id}}">
+                    Book
+                  </a>
+                  {{/if}}
+                  {{else}}
+                  <a id='button'  href="/user/login">
+                    Book
+                  </a>
+                  {{/if}}
                 </p>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-      {{/each}}
+       {{/each}}
+    </div>
     </div>
   </div>
 </section>
+<!--Testimonial-->
+{{> testimonial}}
+<!--Banner Ads-->
+{{> advertise}}

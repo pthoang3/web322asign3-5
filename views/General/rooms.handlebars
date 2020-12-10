@@ -1,23 +1,6 @@
 <section class="airbnb-hero rooms-hero">
   <div class="box container has-text-centered">
     <h2 class="title is-2">Explore our rooms</h2>
-    <div>
-      <form id="searchRoom" action="">
-        <div class="field">
-          <label class="label">Search by city</label>
-          <div class="control has-text-centered">
-            <div class="select is-rounded">
-              <select name="city">
-                <option value="select">Select city</option>
-                <option {{#ifvalue city value="Toronto"}}selected{{/ifvalue}} value="Toronto">Toronto</option>
-                <option {{#ifvalue city value="Waterloo"}}selected{{/ifvalue}} value="Waterloo">Waterloo</option>
-                <option {{#ifvalue city value="Vancouver"}}selected{{/ifvalue}} value="Vancouver">Vancouver</option>
-                <option {{#ifvalue city value="Ottawa"}}selected{{/ifvalue}} value="Ottawa">Ottawa</option>
-              </select>
-            </div>
-          </div>
-      </form>
-    </div>
     <br>
     <div class="has-text-left columns is-multiline">
       {{#each rooms}}
@@ -31,25 +14,23 @@
             </a>
             <div class="card-content">
               <div class="content">
-                <h6 class="subtitle is-uppercase is-6 has-text-grey">{{this.city}}</h6>
-                <h6 class="title is-6">{{this.title}}</h6>
+                 <h6 class="housetitle">{{this.title}}  <div class="host">Super Host</div> </h6>        
                 <p class="columns is-vcentered">
-                  <span class="column is-8">
-                    ${{this.price}} CAD/night
-                  </span>
+                  <h6>House Type: Entire House</h6>
+                  <h6>Price: ${{this.price}} CAD/night </h6>
 
                   {{#if ../user}}
                   {{#if ../user.isAdmin }}
-                  <a class="column is-4  button is-primary" style="padding:0.5rem" href="/admin/edit/{{this._id}}">
+                  <a id='button'  href="/admin/edit/{{this._id}}">
                     Edit
                   </a>
                   {{else}}
-                  <a class="column is-4  button is-primary" style="padding:0.5rem" href="/book/{{this._id}}">
+                  <a id='button'  href="/book/{{this._id}}">
                     Book
                   </a>
                   {{/if}}
                   {{else}}
-                  <a class="column is-4  button is-primary" style="padding:0.5rem" href="/user/login">
+                  <a id='button'  href="/user/login">
                     Book
                   </a>
                   {{/if}}
@@ -63,4 +44,8 @@
       {{/each}}
     </div>
   </div>
+  <!--Testimonial-->
+{{> testimonial}}
+<!--Banner Ads-->
+{{> advertise}}
 </section>

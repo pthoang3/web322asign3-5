@@ -1,5 +1,5 @@
 {
-  "name": "web322-assignment",
+  "name": "web322-assign3to5",
   "version": "1.0.0",
   "engines": {
     "node": "12.14.1"
@@ -34,5 +34,13 @@
   "devDependencies": {
     "handlebars": "^4.7.6"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pthoang3/web322asign3-5.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pthoang3/web322asign3-5/issues"
+  },
+  "homepage": "https://github.com/pthoang3/web322asign3-5#readme",
   "description": ""
 }
